@@ -1,0 +1,62 @@
+[
+{"type":"header","version":"5.0.2","comment":"Export to JSON plugin for PHPMyAdmin"},
+{"type":"database","name":"efoodstore"},
+{"type":"table","name":"authorities","database":"efoodstore","data":
+[
+{"authoritiesId":"1","authority":"ROLE_USER","username":"Ihcen"},
+{"authoritiesId":"2","authority":"ROLE_ADMIN","username":"Admin"}
+]
+}
+,{"type":"table","name":"billingaddress","database":"efoodstore","data":
+[
+{"billingAddressId":"1","apartmentNumber":"","city":"Paris","country":"France","state":"France (+33)","streetName":"54 Rue Philippe de Girard","zipCode":"75018","customer_customerId":"1"},
+{"billingAddressId":"2","apartmentNumber":"8","city":"Paris","country":"France","state":"Paris","streetName":"20 rue fleurie","zipCode":"75001","customer_customerId":"2"}
+]
+}
+,{"type":"table","name":"cart","database":"efoodstore","data":
+[
+{"cartId":"1","grandTotal":"40","customerId":"1"},
+{"cartId":"2","grandTotal":"0","customerId":"2"}
+]
+}
+,{"type":"table","name":"cartitem","database":"efoodstore","data":
+[
+{"cartItemId":"1","quantity":"1","totalPrice":"10","cartId":"2","productId":"1"}
+]
+}
+,{"type":"table","name":"customer","database":"efoodstore","data":
+[
+{"customerId":"1","customerEmail":"ihcen.borgi@gmail.com","customerName":"Ihcen Borgi","customerPhone":"0616031655","enabled":"1","password":"azerty123","username":"Ihcen","billingAddressId":"1","cartId":"1","shippingAddressId":"1"},
+{"customerId":"2","customerEmail":"ganesh@test.com","customerName":"Ganesh","customerPhone":"0616161616","enabled":"1","password":"azerty123","username":"Admin","billingAddressId":"2","cartId":"2","shippingAddressId":"2"}
+]
+}
+,{"type":"table","name":"customerorder","database":"efoodstore","data":
+[
+{"customerOrderId":"1","billingAddressId":"2","cartId":"2","customerId":"2","shippingAddressId":"2"},
+{"customerOrderId":"2","billingAddressId":"1","cartId":"1","customerId":"1","shippingAddressId":"1"},
+{"customerOrderId":"3","billingAddressId":"1","cartId":"1","customerId":"1","shippingAddressId":"1"}
+]
+}
+,{"type":"table","name":"product","database":"efoodstore","data":
+[
+{"productId":"1","productCategory":"farine","productCondition":null,"productDescription":"Farine de ble 100% pur.","productManufacturer":"Holland","productName":"Farine T55","productPrice":"10","productStatus":"active","unitInStock":"3"},
+{"productId":"2","productCategory":"sucre","productCondition":"new","productDescription":"Sucre ","productManufacturer":"Morocco","productName":"Sucre de canne","productPrice":"30","productStatus":"active","unitInStock":"3"},
+{"productId":"3","productCategory":"sucre","productCondition":"new","productDescription":"","productManufacturer":"Morocco","productName":"Sucre de canne","productPrice":"30","productStatus":"active","unitInStock":"1"},
+{"productId":"4","productCategory":"ble","productCondition":"new","productDescription":"","productManufacturer":"","productName":"Sucre de canne","productPrice":"0","productStatus":"active","unitInStock":"0"},
+{"productId":"5","productCategory":"sucre","productCondition":"new","productDescription":"desc","productManufacturer":"Morocco","productName":"Sucre de canne","productPrice":"30","productStatus":"active","unitInStock":"1"},
+{"productId":"6","productCategory":"farine","productCondition":"new","productDescription":"","productManufacturer":"Morocco","productName":"Sucre de canne","productPrice":"10","productStatus":"active","unitInStock":"30"}
+]
+}
+,{"type":"table","name":"shippingaddress","database":"efoodstore","data":
+[
+{"shippingAddressId":"1","apartmentNumber":"","city":"Paris","country":"France","state":"France (+33)","streetName":"54 Rue Philippe de Girard","zipCode":"75018","customer_customerId":"1"},
+{"shippingAddressId":"2","apartmentNumber":"","city":"Paris","country":"France","state":"Paris","streetName":"30 blvd du marechal","zipCode":"75017","customer_customerId":"2"}
+]
+}
+,{"type":"table","name":"users","database":"efoodstore","data":
+[
+{"usersId":"1","customerId":"1","enabled":"1","password":"azerty123","username":"Ihcen"},
+{"usersId":"2","customerId":"2","enabled":"1","password":"admin","username":"admin"}
+]
+}
+]
