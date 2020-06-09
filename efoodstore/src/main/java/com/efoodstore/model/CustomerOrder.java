@@ -1,13 +1,16 @@
-package com.emusicstore.model;
+package com.efoodstore.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
 
+/**
+ * Created by Ihcen & Ganesh on 01/06/2020.
+ */
+
 @Entity
 public class CustomerOrder implements Serializable{
 
-
-    private static final long serialVersionUID = -1546649310334411202L;
+    private static final long serialVersionUID = 2983360377227484514L;
 
     @Id
     @GeneratedValue
@@ -68,4 +71,4 @@ public class CustomerOrder implements Serializable{
     public void setShippingAddress(ShippingAddress shippingAddress) {
         this.shippingAddress = shippingAddress;
     }
-} // The End of Class;
+}

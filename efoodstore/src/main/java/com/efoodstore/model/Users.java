@@ -1,18 +1,22 @@
-package com.emusicstore.model;
+package com.efoodstore.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+/**
+ * Created by Ihcen & Ganesh on 01/06/2020.
+ */
+
 @Entity
-public class Users {
+public class Users{
 
     @Id
     @GeneratedValue
     private int usersId;
     private String username;
     private String password;
-    private Boolean enabled;
+    private boolean enabled;
     private int customerId;
 
     public int getUsersId() {
@@ -39,11 +43,11 @@ public class Users {
         this.password = password;
     }
 
-    public Boolean getEnabled() {
+    public boolean isEnabled() {
         return enabled;
     }
 
-    public void setEnabled(Boolean enabled) {
+    public void setEnabled(boolean enabled) {
         this.enabled = enabled;
     }
 
@@ -54,5 +58,4 @@ public class Users {
     public void setCustomerId(int customerId) {
         this.customerId = customerId;
     }
-
-} // The End of Class;
+}

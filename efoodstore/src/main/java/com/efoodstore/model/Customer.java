@@ -1,5 +1,4 @@
-package com.emusicstore.model;
-
+package com.efoodstore.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.validator.constraints.NotEmpty;
@@ -7,37 +6,40 @@ import org.hibernate.validator.constraints.NotEmpty;
 import javax.persistence.*;
 import java.io.Serializable;
 
+/**
+ * Created by Ihcen & Ganesh on 01/06/2020.
+ */
+
 @Entity
 public class Customer implements Serializable{
-
 
     private static final long serialVersionUID = 5140900014886997914L;
 
     @Id
     @GeneratedValue
-    private int cutomerId;
+    private int customerId;
 
-    @NotEmpty (message = "The customer name must not be null")
+    @NotEmpty (message = "Le nom ne doit pas être vide.")
     private String customerName;
 
-    @NotEmpty (message = "The customer email must not be null")
+    @NotEmpty (message = "L'email ne doit pas être vide.")
     private String customerEmail;
     private String customerPhone;
 
-    @NotEmpty (message = "The customer username must not be null")
+    @NotEmpty (message = "Le pseudo ne doit pas être vide.")
     private String username;
 
-    @NotEmpty (message = "The customer password must not be null")
+    @NotEmpty (message = "Le mot de passe ne doit pas être vide.")
     private String password;
 
     private boolean enabled;
 
     @OneToOne
-    @JoinColumn(name = "billingAddressId")
+    @JoinColumn(name="billingAddressId")
     private BillingAddress billingAddress;
 
     @OneToOne
-    @JoinColumn(name = "shippingAddressId")
+    @JoinColumn(name="shippingAddressId")
     private ShippingAddress shippingAddress;
 
     @OneToOne
@@ -45,12 +47,12 @@ public class Customer implements Serializable{
     @JsonIgnore
     private Cart cart;
 
-    public int getCutomerId() {
-        return cutomerId;
+    public int getCustomerId() {
+        return customerId;
     }
 
-    public void setCutomerId(int cutomerId) {
-        this.cutomerId = cutomerId;
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
     }
 
     public String getCustomerName() {
@@ -124,4 +126,4 @@ public class Customer implements Serializable{
     public void setCart(Cart cart) {
         this.cart = cart;
     }
-} // The End of Class;
+}

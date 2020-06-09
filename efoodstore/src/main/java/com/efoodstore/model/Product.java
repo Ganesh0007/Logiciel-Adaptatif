@@ -1,8 +1,7 @@
-package com.emusicstore.model;
+package com.efoodstore.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.validator.constraints.NotEmpty;
-import org.hibernate.validator.xml.FieldType;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
@@ -10,8 +9,12 @@ import javax.validation.constraints.Min;
 import java.io.Serializable;
 import java.util.List;
 
+/**
+ * Created by Ihcen & Ganesh on 01/06/2020.
+ */
+
 @Entity
-public class Product implements Serializable {
+public class Product implements Serializable{
 
     private static final long serialVersionUID = -3532377236419382983L;
 
@@ -19,29 +22,28 @@ public class Product implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int productId;
 
-    @NotEmpty(message = "The product name must not be empty")
-    private String productName;
+    @NotEmpty (message = "Titre vide !")
 
+    private String productName;
     private String productCategory;
     private String productDescription;
 
-    @Min(value = 0, message = "The product price must not be less then zero")
+    @Min(value = 0, message = "Le prix doit être supérieur à 0€.")
     private double productPrice;
     private String productCondition;
     private String productStatus;
 
-
-    @Min(value = 0, message = "The product unit must not be less then zero")
+    @Min(value = 0, message = "Le stock est insuffisant.")
     private int unitInStock;
     private String productManufacturer;
 
     @Transient
     private MultipartFile productImage;
 
+
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JsonIgnore
     private List<CartItem> cartItemList;
-
 
     public int getProductId() {
         return productId;
@@ -115,7 +117,6 @@ public class Product implements Serializable {
         this.productManufacturer = productManufacturer;
     }
 
-
     public MultipartFile getProductImage() {
         return productImage;
     }
@@ -132,4 +133,4 @@ public class Product implements Serializable {
     public void setCartItemList(List<CartItem> cartItemList) {
         this.cartItemList = cartItemList;
     }
-} // The End of Class;
+}

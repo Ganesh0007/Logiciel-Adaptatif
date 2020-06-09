@@ -1,5 +1,4 @@
-package com.emusicstore.model;
-
+package com.efoodstore.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -7,9 +6,12 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 
+/**
+ * Created by Ihcen & Ganesh on 01/06/2020.
+ */
 
 @Entity
-public class Cart implements Serializable{
+public class Cart implements Serializable {
 
     private static final long serialVersionUID = 3940548625296145582L;
 
@@ -58,5 +60,4 @@ public class Cart implements Serializable{
     public void setGrandTotal(double grandTotal) {
         this.grandTotal = grandTotal;
     }
-
-} // The End of Class;
+}
