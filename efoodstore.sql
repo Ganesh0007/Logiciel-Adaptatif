@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mar. 09 juin 2020 à 01:17
+-- Généré le : mar. 09 juin 2020 à 10:52
 -- Version du serveur :  5.7.19
 -- Version de PHP : 7.4.1
 
@@ -93,7 +93,7 @@ CREATE TABLE IF NOT EXISTS `cart` (
 --
 
 INSERT INTO `cart` (`cartId`, `grandTotal`, `customerId`) VALUES
-(1, 0, 1),
+(1, 40, 1),
 (2, 0, 2);
 
 -- --------------------------------------------------------
@@ -114,7 +114,14 @@ CREATE TABLE IF NOT EXISTS `cartitem` (
   KEY `FK4393E73504B0A3A` (`cartId`),
   KEY `FK4393E736A4E07B1` (`productId`),
   KEY `FK4393E7378A16DE3` (`cartId`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `cartitem`
+--
+
+INSERT INTO `cartitem` (`cartItemId`, `quantity`, `totalPrice`, `cartId`, `productId`) VALUES
+(1, 1, 10, 2, 1);
 
 -- --------------------------------------------------------
 
@@ -173,14 +180,16 @@ CREATE TABLE IF NOT EXISTS `customerorder` (
   KEY `FKAEF781F078ACBBDF` (`customerId`),
   KEY `FKAEF781F0E77E40FF` (`shippingAddressId`),
   KEY `FKAEF781F055BD7D75` (`billingAddressId`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `customerorder`
 --
 
 INSERT INTO `customerorder` (`customerOrderId`, `billingAddressId`, `cartId`, `customerId`, `shippingAddressId`) VALUES
-(1, 2, 2, 2, 2);
+(1, 2, 2, 2, 2),
+(2, 1, 1, 1, 1),
+(3, 1, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -200,7 +209,19 @@ CREATE TABLE IF NOT EXISTS `product` (
   `productStatus` varchar(255) DEFAULT NULL,
   `unitInStock` int(11) NOT NULL,
   PRIMARY KEY (`productId`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `product`
+--
+
+INSERT INTO `product` (`productId`, `productCategory`, `productCondition`, `productDescription`, `productManufacturer`, `productName`, `productPrice`, `productStatus`, `unitInStock`) VALUES
+(1, 'farine', NULL, 'Farine de ble 100% pur.', 'Holland', 'Farine T55', 10, 'active', 3),
+(2, 'sucre', 'new', 'Sucre ', 'Morocco', 'Sucre de canne', 30, 'active', 3),
+(3, 'sucre', 'new', '', 'Morocco', 'Sucre de canne', 30, 'active', 1),
+(4, 'ble', 'new', '', '', 'Sucre de canne', 0, 'active', 0),
+(5, 'sucre', 'new', 'desc', 'Morocco', 'Sucre de canne', 30, 'active', 1),
+(6, 'farine', 'new', '', 'Morocco', 'Sucre de canne', 10, 'active', 30);
 
 -- --------------------------------------------------------
 
@@ -253,7 +274,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`usersId`, `customerId`, `enabled`, `password`, `username`) VALUES
 (1, 1, 1, 'azerty123', 'Ihcen'),
-(2, 2, 1, 'azerty123', 'Admin');
+(2, 2, 1, 'admin', 'admin');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
