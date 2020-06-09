@@ -1,8 +1,7 @@
-package com.emusicstore.controller;
+package com.efoodstore.controller;
 
-
-import com.emusicstore.model.Product;
-import com.emusicstore.service.ProductService;
+import com.efoodstore.model.Product;
+import com.efoodstore.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,6 +12,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * Created by Ihcen on 01/06/2020.
+ */
+
 @Controller
 @RequestMapping("/product")
 public class ProductController {
@@ -21,7 +24,7 @@ public class ProductController {
     private ProductService productService;
 
     @RequestMapping("/productList/all")
-    public String getProducts(Model model){
+    public String getProducts(Model model) {
         List<Product> products = productService.getProductList();
         model.addAttribute("products", products);
 
@@ -29,20 +32,19 @@ public class ProductController {
     }
 
     @RequestMapping("/viewProduct/{productId}")
-    public String viewProduct(@PathVariable int productId, Model model) throws IOException{
-        Product product = productService.getProductById(productId);
+    public String viewProduct(@PathVariable int productId, Model model) throws IOException {
+        Product product=productService.getProductById(productId);
         model.addAttribute("product", product);
 
         return "viewProduct";
     }
 
     @RequestMapping("/productList")
-    public String getProductByCategory(@RequestParam("searchCondition") String searchCondition, Model model){
+    public String getProductByCategory(@RequestParam("searchCondition") String searchCondition, Model model) {
         List<Product> products = productService.getProductList();
         model.addAttribute("products", products);
         model.addAttribute("searchCondition", searchCondition);
 
         return "productList";
     }
-
-} // The End of Class;
+}
